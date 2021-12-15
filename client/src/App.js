@@ -20,7 +20,7 @@ function App() {
     <Router>
       <div>
         <header className="header">
-          <h1>SQA Reporting App</h1>
+          <h1>SQA Survey App</h1>
           <nav className="navigation-links">
             <ul>
               <li><Link to="/">Dashboard</Link></li>
