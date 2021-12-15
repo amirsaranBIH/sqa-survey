@@ -11,19 +11,10 @@ function Register() {
 
     const emailValue = emailInputRef.current.value;
     const passwordValue = passwordInputRef.current.value;
-
-    const data = new FormData();
-    data.append('email', emailValue);
-    data.append('password', passwordValue);
     
-    console.log(emailValue, passwordValue);
-    fetch('http://localhost:3001/api/auth/register', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
+    axios.post('http://localhost:3001/api/auth/register', {
+      email: emailValue,
+      password: passwordValue
     }).then(res => {
       console.log(res);
     }).catch(err => {

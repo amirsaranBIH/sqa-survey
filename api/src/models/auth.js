@@ -17,7 +17,7 @@ module.exports = {
     },
     login: async (email, password) => {
         return new Promise((resolve, reject) => {
-            db.query(`SELECT password FROM users WHERE email = ?`, [email], (err, result) => {
+            db.query(`SELECT id, password FROM users WHERE email = ?`, [email], (err, result) => {
                 if (err) {
                     reject(err);
                 } else {
@@ -26,7 +26,11 @@ module.exports = {
                             if (err) {
                                 reject(err);
                             } else {
-                                resolve(res);
+                                if (res) {
+                                    resolve(result[0].id);
+                                } else {
+                                    resolve(false);
+                                }
                             }
                         });
                     } else {
@@ -36,4 +40,19 @@ module.exports = {
             });
         });
     },
+    getUser: async (id) => {
+        return new Promise((resolve, reject) => {
+            db.query(`SELECT id, email FROM users WHERE id = ?`, [id], (err, result) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    if (result.length > 0) {
+                        resolve(result[0]);
+                    } else {
+                        reject(err);
+                    }
+                }
+            });
+        });
+    }
 };
