@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background-color: cadetblue;
+  padding: 0 2em;
+}
+
+.header a {
+  color: white;
+}
+
+.header h1 {
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.navigation-links ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.navigation-links ul li + li {
+  margin-left: 3em;
+}
+
+main {
+  max-width: 1300px;
+  padding: 1em;
+  margin: 0 auto;
+  background-color: white;
+  min-height: calc(100vh - 50px);
+}

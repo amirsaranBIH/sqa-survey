@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aliceblue;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.form-group {
+  margin-bottom: 1em;
+}
+
+.form-group .form-control {
+  margin-top: 0.5em;
+  padding: 1em;
+  width: 100%;
+}
+
+.btn {
+  border: 0;
+  padding: 1em 2em;
+  background-color: #226fe2;
+  border-radius: 3px;
+  color: white;
+  text-transform: uppercase;
+}
