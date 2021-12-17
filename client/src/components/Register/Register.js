@@ -34,7 +34,7 @@ function Register() {
           <label htmlFor="password">Password</label>
           <input type="password" className="form-control" id="password" ref={passwordInputRef} />
         </div>
-        <button type="submit" className="btn btn-primary">Register</button>
+        <button type="submit" className="btn">Register</button>
       </form>
     </div>
   );

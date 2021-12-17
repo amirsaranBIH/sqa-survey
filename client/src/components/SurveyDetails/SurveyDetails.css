@@ -1,0 +1,24 @@
+.btn-delete {
+  margin-left: 1em;
+}
+
+.question-buttons {
+  text-align: right;
+}
+
+.cursor-pointer {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+.table th,
+.table td {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 1px;
+}
+
+.submissions {
+  margin: 2em 0;
+}

@@ -13,6 +13,23 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.a {
+  color: white;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
 .form-group {
   margin-bottom: 1em;
 }
@@ -30,4 +47,24 @@ a {
   border-radius: 3px;
   color: white;
   text-transform: uppercase;
+}
+
+.btn-small {
+  padding: 0.7em 1em;
+  font-size: 0.7em;
+}
+
+.btn-delete {
+  background-color: #ff5b5b;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: 0.5em;
 }

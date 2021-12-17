@@ -1,8 +1,8 @@
-import './Login.css';
-import { useRef, useState, useContext } from 'react';
-import { Navigate } from 'react-router-dom';
-import axios from 'axios';
-import AuthUserContext from '../../store/auth-user-context';
+import "./Login.css";
+import { useRef, useState, useContext } from "react";
+import { Navigate } from "react-router-dom";
+import axios from "axios";
+import AuthUserContext from "../../store/auth-user-context";
 
 function Login() {
   const authUserContext = useContext(AuthUserContext);
@@ -16,27 +16,37 @@ function Login() {
 
     const emailValue = emailInputRef.current.value;
     const passwordValue = passwordInputRef.current.value;
-    
-    axios.post('http://localhost:3001/api/auth/login', {
-      email: emailValue,
-      password: passwordValue
-    }, {withCredentials: true}).then(res => {
-      setRedirectToAdmin(true);
-      axios.get('http://localhost:3001/api/auth/user', {withCredentials: true}).then(res => {
-          if (res.status === 200) {
-            authUserContext.setUser(res.data.data);
-            authUserContext.setIsAuthenticated(true);
-          } else {
-            authUserContext.setUser(null);
-            authUserContext.setIsAuthenticated(false);
-          }
-      }).catch(err => {
-          console.log(err);
+
+    axios
+      .post(
+        "http://localhost:3001/api/auth/login",
+        {
+          email: emailValue,
+          password: passwordValue,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => {
+        setRedirectToAdmin(true);
+        axios
+          .get("http://localhost:3001/api/auth/user", { withCredentials: true })
+          .then((res) => {
+            if (res.status === 200) {
+              authUserContext.setUser(res.data.data);
+              authUserContext.setIsAuthenticated(true);
+            } else {
+              authUserContext.setUser(null);
+              authUserContext.setIsAuthenticated(false);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-      console.log(res);
-    }).catch(err => {
-      console.log(err);
-    });
   }
 
   if (redirectToAdmin) {
@@ -49,13 +59,25 @@ function Login() {
       <form onSubmit={onSubmitHandler}>
         <div className="form-group">
           <label htmlFor="email">Email address</label>
-          <input type="email" className="form-control" id="email" ref={emailInputRef} />
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            ref={emailInputRef}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input type="password" className="form-control" id="password" ref={passwordInputRef} />
+          <input
+            type="password"
+            className="form-control"
+            id="password"
+            ref={passwordInputRef}
+          />
         </div>
-        <button type="submit" className="btn btn-primary">Login</button>
+        <button type="submit" className="btn">
+          Login
+        </button>
       </form>
     </div>
   );
